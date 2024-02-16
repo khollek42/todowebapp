@@ -2,12 +2,12 @@ import streamlit as st
 
 import files.functions as funct
 
-todos = funct.get_todos("files\\todos.txt")
+todos = funct.get_todos("files/todos.txt")
 
 def add_todo():
     todo = st.session_state['new_todo'] + '\n'
     todos.append(todo)
-    funct.write_todos(todos, filepath='files\\todos.txt')
+    funct.write_todos(todos, filepath='files/todos.txt')
 
 
 
@@ -20,7 +20,7 @@ for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
     if checkbox:
         todos.pop(index)
-        funct.write_todos(todos, filepath='files\\todos.txt')
+        funct.write_todos(todos, filepath='files/todos.txt')
         del st.session_state[todo]
         st.rerun()
 
